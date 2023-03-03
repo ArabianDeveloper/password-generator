@@ -1,5 +1,7 @@
 from tkinter import *
 import random
+import pyperclip
+
 def generate():
     passlen = int(spn.get())
     passent.delete(0,passlen)
@@ -10,10 +12,13 @@ def generate():
 
     passent.insert(INSERT, passw)
 
+def copy():
+    pyperclip.copy(passent.get())
+
 root = Tk()
 root.geometry('220x125')
 root.resizable(False, False)
-btnco = Button(root, text='نسخ', font=("Tajawal", 9))
+btnco = Button(root, text='نسخ', font=("Tajawal", 9), command=copy)
 btnco.place(x = 15, y = 30, width = 40, height = 30)
 
 passent = Entry(root, font=('Tajawal', 14))
